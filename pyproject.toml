@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cicd-oihanc"
+version = "0.0.1"
+authors = [
+  { name="Oihan Cordelier", email="oihan.cordelier@polymtl.ca" },
+]
+description = "CICD pipeline experimentation"
+readme = "README.md"
+requires-python = ">=3.11"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+]
+
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+
+[project.optional-dependencies]
+dev = [
+]
+
+[project.urls]
+Homepage = "https://github.com/oihanc/cicd"
+Issues = "https://github.com/oihanc/cicd/issues"
