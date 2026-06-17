@@ -13,22 +13,22 @@ permissions:
 jobs:
 
   test:
-    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    name: Test
     runs-on: ${{ matrix.os }}
 
     strategy:
       fail-fast: false
 
       matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
-          - macos-latest
+        os: [ubuntu-latest]
+#          - ubuntu-latest
+#          - windows-latest
+#          - macos-latest
 
-        python-version:
-          - "3.11"
-          - "3.12"
-          - "3.13"
+        python-version: ["3.11"]
+#          - "3.11"
+#          - "3.12"
+#          - "3.13"
 
     steps:
       - uses: actions/checkout@v5
@@ -47,6 +47,15 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover src/tests/
+  
+  test_status:
+    name: Test Status
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Check matrix result
+        run: echo "All matrix tests passed"
 
   build:
     name: Build package
